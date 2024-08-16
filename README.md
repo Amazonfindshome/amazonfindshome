@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links Invoegen en Verwijderen</title>
+    <title>Add and Remove Links</title>
     <style>
-        /* Voeg wat eenvoudige stijlen toe voor betere leesbaarheid */
+        /* Add some simple styles for better readability */
         ul {
             list-style-type: none;
             padding: 0;
@@ -21,12 +21,12 @@
     </style>
 </head>
 <body>
-    <h1>Voeg je links toe en verwijder ze</h1>
+    <h1>Add and Remove Links</h1>
     <ul id="link-list"></ul>
 
-    <input type="text" id="link-input" placeholder="Voer je link in">
-    <input type="text" id="name-input" placeholder="Voer de naam van de link in">
-    <button onclick="addLink()">Link toevoegen</button>
+    <input type="text" id="link-input" placeholder="Enter your link">
+    <input type="text" id="name-input" placeholder="Enter the link name">
+    <button onclick="addLink()">Add Link</button>
 
     <script>
         function addLink() {
@@ -34,17 +34,17 @@
             const nameInput = document.getElementById('name-input');
             const linkList = document.getElementById('link-list');
 
-            // Controleer of beide velden zijn ingevuld
+            // Check if both fields are filled
             if (linkInput.value && nameInput.value) {
                 const listItem = document.createElement('li');
                 const link = document.createElement('a');
                 link.href = linkInput.value;
                 link.textContent = nameInput.value;
-                link.target = "_blank"; // Opent de link in een nieuw tabblad
+                link.target = "_blank"; // Opens the link in a new tab
 
-                // Maak een verwijderknop
+                // Create a remove button
                 const removeBtn = document.createElement('span');
-                removeBtn.textContent = 'Verwijderen';
+                removeBtn.textContent = 'Remove';
                 removeBtn.className = 'remove-btn';
                 removeBtn.onclick = function() {
                     linkList.removeChild(listItem);
@@ -54,11 +54,11 @@
                 listItem.appendChild(removeBtn);
                 linkList.appendChild(listItem);
 
-                // Maak de invoervelden leeg na het toevoegen
+                // Clear the input fields after adding
                 linkInput.value = '';  
                 nameInput.value = '';  
             } else {
-                alert("Zorg ervoor dat beide velden zijn ingevuld.");
+                alert("Please make sure both fields are filled.");
             }
         }
     </script>
